@@ -1,0 +1,38 @@
+{% set name = "django-constance" %}
+{% set version = "2.9.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
+  sha256: 4c6a96a5f2cbce1bc3fa41aa20566b6ee26fbd896c9f91f996518a3a0904f6c8
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+
+requirements:
+  host:
+    - pip
+    - python
+    - setuptools
+    - django
+  run:
+    - python
+    - setuptools
+    - django
+
+about:
+  home: "https://github.com/jazzband/django-constance"
+  license: BSD
+  license_family: BSD
+  license_file: LICENSE
+  summary: "Django live settings with pluggable backends, including Redis."
+  doc_url: https://django-constance.readthedocs.io/
+  dev_url: https://github.com/jazzband/django-constance
+
+extra:
+  recipe-maintainers:
+    - https://github.com/gb119
